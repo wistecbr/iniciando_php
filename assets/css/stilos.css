@@ -1,5 +1,5 @@
 :root{
-    --cor-bg-header:#f0f0f0 ; /* #252525 */
+    --cor-bg-header:#b7b7fb; /* #252525 */
     --cor-bg-main: #ffffff; /*#474747*/
     --cor-borda: #ffffff;
     --cor-bg-calc:  #151515;
@@ -55,4 +55,8 @@ td{
 
 p{
     display: block;
+}
+
+input:invalid {
+    border-color: red !important;
 }

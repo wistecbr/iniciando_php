@@ -1,6 +1,7 @@
 <?php
    include './lib/bancoDados.php';
    $alunos = listaAlunos();
+   $sessao = sessao();
 ?>
 
 <!DOCTYPE html>
@@ -10,12 +11,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/stilo.css">
+    <link rel="stylesheet" href="./assets/css/stilos.css">
     <script src="./assets/js/script.js" defer></script>
     <title>Listar Alunos</title>
 </head>
 <body>
-<header>
+    <header>
         <figure>
             <img src="" alt="logo">
         </figure>
@@ -27,14 +28,16 @@
     </header>
     <main>
         <form action="/listaAlunos.php" method="post">
-            <p>Your name: <input type="text" name="name" /></p>
-            <p>Your age: <input type="text" name="age" /></p>
+            <p>Nome: <input id="inputName" type="text" name="name" /></p>
+            <p>Idade: <input id="inputIdade" type="number" name="age" onchange="isNumber(value)"  placeholder="Apenas números." /></p>
+            <p>Sexo:
             <select id="box-sexo" name="sexo">
                 <option value="m">Masculino</option>
                 <option value="f">Feminino</option>
                 <option value="x">X</option>
-            </select>
-            <p><input type="submit" /></p>
+            </select> </p>
+            <p><input type="submit" value="Cadastrar" /> 
+            <input type="button" value="Cancelar" onclick="reset()" /></p>
         </form>        
     </main>
 </body>

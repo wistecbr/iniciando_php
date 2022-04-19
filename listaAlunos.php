@@ -1,6 +1,17 @@
 <?php
-   include './lib/bancoDados.php';
-   $alunos = listaAlunos();
+    
+    include './lib/bancoDados.php';
+    $sessao = sessao();
+
+    $alunos = listaAlunos();
+    if( isset($_POST) && isset($_POST['name']) && isset($_POST['age'])){
+            $idade = (int) $_POST['age'];
+            $nome = htmlspecialchars($_POST['name']);
+            $sexo = htmlspecialchars($_POST['sexo']);
+
+            $pessoa = array('nome' => $nome , 'idade' => $idade, 'sexo' => $sexo);
+            array_push($alunos,$pessoa);
+    }
 ?>
 
 <!DOCTYPE html>

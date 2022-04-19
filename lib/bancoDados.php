@@ -58,5 +58,26 @@
         mysqli_close($link);
     }
 
+    function sessao(){
+        session_start();
+        if (isset($_SESSION['login'])){
+            $sessao = $_SESSION['login'];
+            return $sessao;
+        }else {
+            header('Location: /login.php');
+            exit;
+        }
+        
+    }
+    function sessaoLogin($login){
+        session_start();
+        if (isset($_SESSION['login'])){
+            header('Location: /index.php');
+        }else {
+            $_SESSION['login'] = array('login' => $login);
+            header('Location: /index.php');
+        }
+        
+    }
     
  ?>

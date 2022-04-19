@@ -2,7 +2,8 @@
     include './lib/bancoDados.php'; 
 
     $alunos = listaAlunos(); 
-    $aluno = $alunos[7]['nome'];
+    $sessao = sessao();
+    $aluno = $sessao['login'];
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +18,12 @@
 </head>
 <body>
     <header>
-        <figure>
-            <img src="" alt="logo">
-        </figure>
+        <section>
+            <figure>
+                <img src="" alt="logo">
+            </figure>
+            <a href="/login.php?sair=1">Sair</a>
+        </section>
         <section>
             <a href="/">HOME</a>
             <a href="/listaAlunos.php">Alunos</a>
